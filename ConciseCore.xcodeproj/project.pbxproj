@@ -17,9 +17,9 @@
 		47AEC7C41A2104940034FB45 /* AddUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47AEC7C21A2104940034FB45 /* AddUserViewController.swift */; };
 		47AEC7C61A2104980034FB45 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47AEC7C51A2104980034FB45 /* User.swift */; };
 		47AEC7C81A2104F80034FB45 /* Schema.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47AEC7C71A2104F80034FB45 /* Schema.swift */; };
-		47AEC7D21A2105DB0034FB45 /* ConciseCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47AEC7CF1A2105DB0034FB45 /* ConciseCore.swift */; };
-		47AEC7D31A2105DB0034FB45 /* CCDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47AEC7D01A2105DB0034FB45 /* CCDB.swift */; };
-		47AEC7D41A2105DB0034FB45 /* CCTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47AEC7D11A2105DB0034FB45 /* CCTable.swift */; };
+		47AEC7D81A2108520034FB45 /* CCDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47AEC7D51A2108520034FB45 /* CCDB.swift */; };
+		47AEC7D91A2108520034FB45 /* CCTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47AEC7D61A2108520034FB45 /* CCTable.swift */; };
+		47AEC7DA1A2108520034FB45 /* ConciseCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47AEC7D71A2108520034FB45 /* ConciseCore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,9 +47,9 @@
 		47AEC7C21A2104940034FB45 /* AddUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddUserViewController.swift; sourceTree = "<group>"; };
 		47AEC7C51A2104980034FB45 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		47AEC7C71A2104F80034FB45 /* Schema.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Schema.swift; sourceTree = "<group>"; };
-		47AEC7CF1A2105DB0034FB45 /* ConciseCore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConciseCore.swift; sourceTree = "<group>"; };
-		47AEC7D01A2105DB0034FB45 /* CCDB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CCDB.swift; sourceTree = "<group>"; };
-		47AEC7D11A2105DB0034FB45 /* CCTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CCTable.swift; sourceTree = "<group>"; };
+		47AEC7D51A2108520034FB45 /* CCDB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CCDB.swift; path = src/CCDB.swift; sourceTree = "<group>"; };
+		47AEC7D61A2108520034FB45 /* CCTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CCTable.swift; path = src/CCTable.swift; sourceTree = "<group>"; };
+		47AEC7D71A2108520034FB45 /* ConciseCore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConciseCore.swift; path = src/ConciseCore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,9 +135,9 @@
 		47AEC7BE1A2104380034FB45 /* ConciseCore */ = {
 			isa = PBXGroup;
 			children = (
-				47AEC7CF1A2105DB0034FB45 /* ConciseCore.swift */,
-				47AEC7D01A2105DB0034FB45 /* CCDB.swift */,
-				47AEC7D11A2105DB0034FB45 /* CCTable.swift */,
+				47AEC7D51A2108520034FB45 /* CCDB.swift */,
+				47AEC7D61A2108520034FB45 /* CCTable.swift */,
+				47AEC7D71A2108520034FB45 /* ConciseCore.swift */,
 			);
 			name = ConciseCore;
 			sourceTree = "<group>";
@@ -242,14 +242,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				47AEC7D81A2108520034FB45 /* CCDB.swift in Sources */,
 				47AEC7C81A2104F80034FB45 /* Schema.swift in Sources */,
-				47AEC7D41A2105DB0034FB45 /* CCTable.swift in Sources */,
-				47AEC7D31A2105DB0034FB45 /* CCDB.swift in Sources */,
+				47AEC7DA1A2108520034FB45 /* ConciseCore.swift in Sources */,
 				47AEC7C31A2104940034FB45 /* ViewController.swift in Sources */,
 				47AEC7961A2104230034FB45 /* AppDelegate.swift in Sources */,
-				47AEC7D21A2105DB0034FB45 /* ConciseCore.swift in Sources */,
 				47AEC7991A2104230034FB45 /* ConciseCore.xcdatamodeld in Sources */,
 				47AEC7C61A2104980034FB45 /* User.swift in Sources */,
+				47AEC7D91A2108520034FB45 /* CCTable.swift in Sources */,
 				47AEC7C41A2104940034FB45 /* AddUserViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
