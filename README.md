@@ -56,4 +56,4 @@ db.user.count() // Get the count of this entity
 
 # License
 
-ConciseCore is released under an MIT license. See LICENSE for more information.
+ConciseCore is released under an MIT license. See [LICENSE](https://github.com/tuzaiz/ConciseCore/blob/dev/License.txt) for more information.
