@@ -53,3 +53,7 @@ db.user.take() // Fetch any one row
 db.user.first() // Fetch first row
 db.user.count() // Get the count of this entity
 ```
+
+# License
+
+ConciseCore is released under an MIT license. See LICENSE for more information.
