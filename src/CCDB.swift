@@ -22,4 +22,14 @@ class CCDB {
         ConciseCore.managedObjectContext.save(&error)
         ConciseCore.rootSaveContext.save(&error)
     }
+    
+    func save(completion:((NSError?) -> Void)?) {
+        var error : NSError?
+        self.context.save(&error)
+        ConciseCore.managedObjectContext.save(&error)
+        ConciseCore.rootSaveContext.save(&error)
+        if let complete = completion {
+            complete(error)
+        }
+    }
 }
