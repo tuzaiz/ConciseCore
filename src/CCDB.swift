@@ -9,27 +9,39 @@
 import Foundation
 import CoreData
 
-class CCDB {
+class CCDB : NSObject {
     lazy var context : NSManagedObjectContext = {
         var ctx = NSManagedObjectContext(concurrencyType: NSManagedObjectContextConcurrencyType.PrivateQueueConcurrencyType)
         ctx.parentContext = ConciseCore.managedObjectContext
         return ctx
     }()
     
-    func save() {
+    internal func save() {
         var error : NSError?
-        self.context.save(&error)
-        ConciseCore.managedObjectContext.save(&error)
-        ConciseCore.rootSaveContext.save(&error)
+        self.context.performBlockAndWait { () -> Void in
+            self.saveToContext(&error)
+        }
     }
     
-    func save(completion:((NSError?) -> Void)?) {
+    internal func save(completion:((NSError?) -> Void)?) {
+        self.context.performBlock { () -> Void in
+            var error  : NSError?
+            self.context.performBlock({ () -> Void in
+                self.saveToContext(&error)
+                if let complete = completion {
+                    complete(error)
+                }
+            })
+        }
+    }
+    
+    private func saveToContext(error:NSErrorPointer?) {
         var error : NSError?
         self.context.save(&error)
-        ConciseCore.managedObjectContext.save(&error)
-        ConciseCore.rootSaveContext.save(&error)
-        if let complete = completion {
-            complete(error)
+        var ctx : NSManagedObjectContext? = self.context
+        while var context = ctx?.parentContext {
+            context.save(&error)
+            ctx = context
         }
     }
 }

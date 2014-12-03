@@ -18,6 +18,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         super.viewDidLoad()
         self.users = db.user.all()
         // Do any additional setup after loading the view, typically from a nib.
+        db.save { (error) in
+
+        }
     }
     
     override func viewDidAppear(animated: Bool) {
