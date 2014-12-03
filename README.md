@@ -41,6 +41,9 @@ Save changes to database
 
 ```
 db.save()
+db.save {(error) in
+    // Do something after save complete.
+}
 ```
 
 ## Fetch data
