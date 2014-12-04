@@ -38,6 +38,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     private func reloadUser() {
         self.users = db.user.all()
         self.tableView?.reloadData()
+        if let users = self.users {
+            for user in users {
+                println("\(user.name)")
+            }
+        }
     }
 
     // MARK: TableView DataSource -
