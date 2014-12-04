@@ -17,20 +17,27 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         self.users = db.user.all()
-        // Do any additional setup after loading the view, typically from a nib.
-        db.save { (error) in
-
-        }
     }
     
     override func viewDidAppear(animated: Bool) {
-        self.users = db.user.all()
-        self.tableView?.reloadData()
+        self.reloadUser()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    private func deleteUser(index : Int) {
+        var user = self.users?[index]
+        user?.delete()
+        db.save()
+        self.reloadUser()
+    }
+    
+    private func reloadUser() {
+        self.users = db.user.all()
+        self.tableView?.reloadData()
     }
 
     // MARK: TableView DataSource -
@@ -44,9 +51,24 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
-        var user = self.users![indexPath.row]
-        cell.textLabel.text = user.name
+        if let user = self.users?[indexPath.row] {
+            cell.textLabel?.text = user.name
+        }
         return cell
+    }
+    
+    func tableView(tableView: UITableView, editingStyleForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCellEditingStyle {
+        return .Delete
+    }
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == .Delete {
+            self.deleteUser(indexPath.row)
+        }
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: false)
     }
 }
 

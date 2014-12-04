@@ -19,6 +19,14 @@ extension NSManagedObject {
             return className
         }
     }
+    
+    internal func delete() {
+        self.managedObjectContext?.deleteObject(self)
+    }
+    
+    internal func refresh(mergeChanges : Bool) {
+        self.managedObjectContext?.refreshObject(self, mergeChanges: mergeChanges)
+    }
 }
 
 class CCTable<T:NSManagedObject> {
