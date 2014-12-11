@@ -45,9 +45,9 @@ class CCDB : NSObject {
         }
     }
 
-    internal func remove(itemId:NSManagedObjectID) {
-        var item = self.context.objectWithID(itemId) as NSManagedObject
-        self.context.deleteObject(item)
+    internal func removeByObjectId(objectId:NSManagedObjectID) {
+        var object = self.context.objectWithID(objectId) as NSManagedObject
+        self.context.deleteObject(object)
         self.save();
     }
 }
