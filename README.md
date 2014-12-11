@@ -61,7 +61,9 @@ db.user.count() // Get the count of this entity
 
 ```
 db.removeByObjectId(id : NSManagedObjectID) // Removes row
+
 ```
+
 
 # License
 
