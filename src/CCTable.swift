@@ -47,6 +47,11 @@ class CCTable<T:NSManagedObject> {
         return newEntity
     }
     
+    internal func create() -> T {
+        var newEntity : T = NSEntityDescription.insertNewObjectForEntityForName(entityName, inManagedObjectContext: context) as T
+        return newEntity
+    }
+    
     internal func all() -> [T]? {
         var fetchRequest = NSFetchRequest(entityName: self.entityName)
         return self.context.executeFetchRequest(fetchRequest, error: nil) as? [T]
