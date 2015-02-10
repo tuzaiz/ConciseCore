@@ -1,7 +1,7 @@
 ConciseCore
 ======
 
-A Core Data wrapper library by Swift.
+A Core Data wrapper library by Swift. Try to use a neat way to access core data.
 
 # Sample code
 
