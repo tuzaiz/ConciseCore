@@ -15,14 +15,14 @@ class CCDB : NSObject {
         ctx.parentContext = ConciseCore.managedObjectContext
         return ctx
     }()
-    
+
     internal func save() {
         var error : NSError?
         self.context.performBlockAndWait { () -> Void in
             self.saveToContext(&error)
         }
     }
-    
+
     internal func save(completion:((NSError?) -> Void)?) {
         self.context.performBlock { () -> Void in
             var error  : NSError?
@@ -34,7 +34,7 @@ class CCDB : NSObject {
             })
         }
     }
-    
+
     private func saveToContext(error:NSErrorPointer?) {
         var error : NSError?
         self.context.save(&error)
@@ -43,5 +43,11 @@ class CCDB : NSObject {
             context.save(&error)
             ctx = context
         }
+    }
+
+    internal func removeByObjectId(objectId:NSManagedObjectID) {
+        var object = self.context.objectWithID(objectId) as NSManagedObject
+        self.context.deleteObject(object)
+        self.save();
     }
 }
